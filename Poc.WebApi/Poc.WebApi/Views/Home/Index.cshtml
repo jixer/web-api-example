@@ -1,0 +1,59 @@
+﻿@model Poc.WebApi.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<p style="color: red;">
+    The information below comes directly from Customer ApiController
+</p>
+<fieldset>
+    <legend>Customer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+</fieldset>
+
+<p style="color: red;">
+    Below is the raw HTTP request you can send via Fiddler to retrieve the data displayed above
+</p>
+<p>
+POST http://localhost:46647/api/Customer HTTP/1.1<br />
+User-Agent: Fiddler<br />
+Content-Type: application/json<br />
+Host: localhost:46647<br />
+Content-Length: 21<br />
+<br />
+{ "Id": "test-guid" }
+</p>
+<p style="color: red;">
+    And here was the response
+</p>
+<p>
+HTTP/1.1 200 OK<br />
+Cache-Control: no-cache<br />
+Pragma: no-cache<br />
+Content-Type: application/json; charset=utf-8<br />
+Expires: -1<br />
+Server: Microsoft-IIS/8.0<br />
+X-AspNet-Version: 4.0.30319<br />
+X-SourceFiles: =?UTF-8?B?QzpcZGV2XHdlYi1hcGktZXhhbXBsZVxQb2MuV2ViQXBpXFBvYy5XZWJBcGlcYXBpXEN1c3RvbWVy?=<br />
+X-Powered-By: ASP.NET<br />
+Date: Thu, 30 Jul 2015 19:30:15 GMT<br />
+Content-Length: 83<br />
+    <br />
+{"Id":"6e6ecf57-59cc-4219-ad73-041bc4a7b3d6","FirstName":"Adam","LastName":"Smith"}
+</p>
